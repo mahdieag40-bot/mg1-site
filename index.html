@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MG1 OS | Beyond Limits</title>
+    <style>
+        :root {
+            --ms-blue: #0067b8;
+            --accent-red: #ff4d4d;
+            --white: #ffffff;
+            --dark-bg: #0a0a0a;
+        }
+
+        body, html {
+            margin: 0; padding: 0;
+            background-color: var(--dark-bg);
+            color: var(--white);
+            font-family: 'Segoe UI', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section with Background */
+        .hero {
+            position: relative;
+            height: 100vh;
+            background: url('hero.png') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        /* --- Windows 11 Style Animation --- */
+        .mg1-logo {
+            font-size: 5rem;
+            font-weight: 700;
+            letter-spacing: 8px;
+            margin: 0;
+            opacity: 0; /* يبدأ مخفي */
+            transform: translateY(30px); /* يبدأ من الأسفل قليلاً */
+            animation: win11Entrance 1.5s ease-out forwards;
+            text-shadow: 0 0 25px rgba(255, 77, 77, 0.4);
+        }
+
+        @keyframes win11Entrance {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+                filter: blur(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        /* تأثير النبض المستمر للشعار */
+        .mg1-logo {
+            animation: win11Entrance 1.5s ease-out forwards, 
+                       glowPulse 3s infinite 1.5s ease-in-out;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { text-shadow: 0 0 20px rgba(255, 77, 77, 0.4); }
+            50% { text-shadow: 0 0 40px rgba(255, 77, 77, 0.8); }
+        }
+
+        .hero p {
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards 1.2s;
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* Buttons */
+        .btn-container {
+            margin-top: 30px;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards 1.8s;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        .btn-download { background: var(--accent-red); color: white; }
+        .btn-specs { border: 1px solid white; color: white; }
+        .btn:hover { transform: scale(1.05); }
+
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="mg1-logo">MG1 OS</h1>
+            <p>Next Generation Computing</p>
+            
+            <div class="btn-container"><div class="btn-container">
+    <a href="error.html" class="btn btn-download">Get Started</a>
+    <a href="requirements.html" class="btn btn-specs">Requirements</a>
+</div>
+    </section>
+
+</body>
+</html>
