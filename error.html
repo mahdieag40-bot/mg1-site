@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compatibility Error | MG1 OS</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        .error-container {
+            max-width: 500px;
+            padding: 40px;
+            border: 1px solid #333;
+            background: #111;
+            border-radius: 8px;
+        }
+
+        .icon {
+            font-size: 50px;
+            color: #ff4d4d;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: #ff4d4d;
+            font-weight: bold;
+            border: 1px solid #ff4d4d;
+            padding: 10px 20px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #ff4d4d;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="error-container">
+        <div class="icon">⚠️</div>
+        <h1>Incompatibility Detected</h1>
+        <p>We are sorry, but MG1 OS is not compatible with your current environment or web browser. Please ensure you are using a supported system to proceed with the installation.</p>
+        <a href="MG1 V2.html" class="back-btn">Return to Home</a>
+    </div>
+<script>
+    // دالة لإصدار صوت تنبيه تقني (Beep) باستخدام Web Audio API
+    function playErrorSound() {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+
+        oscillator.type = 'square'; // صوت "مربع" ليعطي طابع الأنظمة القديمة
+        oscillator.frequency.setValueAtTime(150, audioCtx.currentTime); // تردد منخفض للتحذير
+        
+        gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.5);
+
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+
+        oscillator.start();
+        oscillator.stop(audioCtx.currentTime + 0.5);
+    }
+
+    // تشغيل الصوت عند أول نقرة للمستخدم في الصفحة
+    window.addEventListener('click', playErrorSound, { once: true });
+    
+    // محاولة التشغيل عند التحميل (قد يتم حظرها من المتصفح)
+    window.onload = () => {
+        setTimeout(playErrorSound, 500);
+    };
+</script>
+</body>
+</html>

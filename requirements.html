@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MG1 OS | System Requirements</title>
+    <style>
+        :root {
+            --accent-red: #ff4d4d;
+            --dark-bg: #0a0a0a;
+            --card-bg: #161616;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0; padding: 50px 10%;
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            border-bottom: 3px solid var(--accent-red);
+            padding-bottom: 10px;
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .specs-container {
+            background: var(--card-bg);
+            width: 100%; max-width: 800px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #333;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid #222;
+        }
+
+        th {
+            background-color: #1a1a1a;
+            color: var(--accent-red);
+            font-weight: 600;
+            width: 35%;
+        }
+
+        tr:hover { background: #1f1f1f; }
+
+        .back-btn {
+            margin-top: 40px;
+            text-decoration: none;
+            color: #888;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover { color: var(--accent-red); }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <h1>System Requirements</h1>
+
+    <div class="specs-container">
+        <table>
+            <tr>
+                <th>Processor (CPU)</th>
+                <td>2.0 GHz or faster 64-bit multi-core</td>
+            </tr>
+            <tr>
+                <th>Memory (RAM)</th>
+                <td>16 GB Minimum (8 GB Recommended)</td>
+            </tr>
+            <tr>
+                <th>Storage</th>
+                <td>500 OR 225 GB Free Space SSD Recommended</td>
+            </tr>
+            <tr>
+                <th>Graphics</th>
+                <td>NVIDIA RTX 30+</td>
+            </tr>
+            
+            </tr>
+        </table>
+    </div>
+
+    <a href="MG1 V2.html" class="back-btn">← Back to Home Page</a>
+
+</body>
+</html>
